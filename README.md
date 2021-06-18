@@ -1,7 +1,7 @@
 # CSC 413 - Project Two - The Interpreter
 
-## Student Name  : Name here
+## Student Name  : Tamir Rasheed
 
-## Student ID    : ID here
+## Student ID    : 918537300
 
-## Student Email : Email here
+## Student Email : Trasheed@mail.sfsu.edu
