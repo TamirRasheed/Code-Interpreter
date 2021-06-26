@@ -46,7 +46,9 @@ class RunTimeStack {
   * removes to the top of the runtime stack .
   * @return the value popped .
   */
-         public int pop () { }
+         public int pop () {
+             return runTimeStack.remove(runTimeStack.size() - 1);
+         }
  /**
   * Takes the top item of the run time stack , and stores
   * it into a offset starting from the current frame .
@@ -54,7 +56,9 @@ class RunTimeStack {
   * @return the item just stored
   */
          public int store ( int offset ) {
-             runTimeStack.set(framePointer.peek() + offset, pop());
+             int pop = pop();
+             runTimeStack.set(framePointer.peek() + offset, pop);
+             return pop;
          }
  /**
   * Takes a value from the run time stack that is at offset
@@ -63,7 +67,9 @@ class RunTimeStack {
   * @param offset number of slots above current frame marker
   * @return item just loaded into the offset
   */
-         public int load ( int offset ) { }
+         public int load ( int offset ) {
+             return push(runTimeStack.get(framePointer.peek() + offset));
+         }
 
          /**
   * create a new frame pointer at the index offset slots down
