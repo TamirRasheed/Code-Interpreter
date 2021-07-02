@@ -22,14 +22,21 @@ class RunTimeStack {
       * Example [1 ,2 ,3] [4 ,5 ,6] [7 ,8]
       * Frame pointers would be 0 ,3 ,6
       */
-             public void dump () { }
+             public void dump () {
+                 int num = 0;
+                 for(int i = 0; i < framePointer.size(); i++){
+                     System.out.println(runTimeStack.subList(num, framePointer.get(i)));
+                     num = framePointer.get(i);
+
+                 }
+             }
 
          /**
   * returns the top of the runtime stack , but does not remove
   * @return copy of the top of the stack .
   */
          public int peek () {
-             return runTimeStack.get(runTimeStack.size() - 1);
+             return this.runTimeStack.get(runTimeStack.size() - 1);
          }
 
          /**
@@ -38,8 +45,8 @@ class RunTimeStack {
   * @return value pushed
   */
          public int push ( int i ) {
-             runTimeStack.add(i);
-             return i;
+             this.runTimeStack.add(i);
+             return this.peek();
          }
 
          /**
@@ -47,7 +54,7 @@ class RunTimeStack {
   * @return the value popped .
   */
          public int pop () {
-             return runTimeStack.remove(runTimeStack.size() - 1);
+             return this.runTimeStack.remove(runTimeStack.size() - 1);
          }
  /**
   * Takes the top item of the run time stack , and stores

@@ -31,4 +31,8 @@ public class VirtualMachine {
                 programCounter++;
             }
     }
+
+    public void pushRunTimeStack(int value) {
+        runTimeStack.push(value);
+    }
 }

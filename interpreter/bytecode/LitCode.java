@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
         @Override
         public void execute(VirtualMachine machine) {
-
+            machine.pushRunTimeStack(value);
         }
 
         @Override
@@ -35,7 +35,9 @@ import java.util.ArrayList;
 
         @Override
         public  void dump (VirtualMachine machine){
-
+            if(!id.isEmpty()){
+                System.out.println(" " + id + "\t" + "int " + id);
+            }
         }
     }
 

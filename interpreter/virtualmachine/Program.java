@@ -1,7 +1,10 @@
 package interpreter.virtualmachine;
+import interpreter.bytecode.BopCode;
 import interpreter.bytecode.ByteCode;
+import interpreter.bytecode.LabelCode;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Program {
 
@@ -22,15 +25,13 @@ public class Program {
      * HINT: make note what type of data-structure ByteCodes are stored in.
      */
     public void resolveAddress() {
+        HashMap<String, Integer> addressestoResove = new HashMap<>();
 
-        // 1st pass through the arraylist keeping track of all label codes and their labels
-
-        // 2nd pass through the arraylist look for call, goto, and falsebrach codes and do the following:
-        // look at stored label codes and find the 1 that has the matching label value;
+        for (int i = 0; i < program.size(); i++) {
+            if (program.get(i) instanceof LabelCode) {
+                addressestoResove.put(((LabelCode) program.get(i)).getLabel(), i);
+            }
+        }
 
     }
-
-
-
-
 }
