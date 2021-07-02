@@ -7,7 +7,7 @@ public class Program {
 
     private ArrayList<ByteCode> program;
 
-    public Program() {
+    public Program(ArrayList<ByteCode> byteCodes) {
         program = new ArrayList<>();
     }
 

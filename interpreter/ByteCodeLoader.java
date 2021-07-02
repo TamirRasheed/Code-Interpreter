@@ -41,7 +41,7 @@ public class ByteCodeLoader extends Object {
         String className; //name after its mapped from source code
         Class classBlueprint;
         ByteCode bc;
-        Program program = new Program();
+        ArrayList<ByteCode> byteCodes = new ArrayList<>();
         try {
             while (this.byteSource.ready()) {
                 //tokenise the read line
@@ -63,7 +63,7 @@ public class ByteCodeLoader extends Object {
                 // pass args to bytecode init function
                 bc.init(args);
                 // add bytecode to program
-
+                byteCodes.add(bc);
             }
         } catch (IOException | ClassNotFoundException | NoSuchMethodException ex) {
             System.out.println(ex);
@@ -75,7 +75,7 @@ public class ByteCodeLoader extends Object {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-
+        Program program = new Program(byteCodes);
         program.resolveAddress();
         return program;
     }
