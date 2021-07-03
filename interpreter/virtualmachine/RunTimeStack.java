@@ -7,6 +7,7 @@ class RunTimeStack {
 
     private ArrayList<Integer> runTimeStack;
     private Stack<Integer>     framePointer;
+    private int countOfArgsForDump;
 
     public RunTimeStack() {
         runTimeStack = new ArrayList<>();
@@ -91,4 +92,7 @@ class RunTimeStack {
   */
          public void popFrame () { }
 
+         public void setCountOfArgsForDump(int countOfArgs){
+             countOfArgsForDump = countOfArgs;
+         }
 }

@@ -39,6 +39,16 @@ import java.util.ArrayList;
                 System.out.println(" " + id + "\t" + "int " + id);
             }
         }
+
+        @Override
+        public void setAddress(int address) {
+
+        }
+
+        @Override
+        public String getLabel() {
+            return null;
+        }
     }
 
 

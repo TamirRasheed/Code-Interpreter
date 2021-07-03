@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class ByteCodeLoader extends Object {
@@ -42,6 +43,7 @@ public class ByteCodeLoader extends Object {
         Class classBlueprint;
         ByteCode bc;
         ArrayList<ByteCode> byteCodes = new ArrayList<>();
+
         try {
             while (this.byteSource.ready()) {
                 //tokenise the read line
@@ -60,6 +62,8 @@ public class ByteCodeLoader extends Object {
 
                 //grab remaining arguments
 
+                // Want to credit xyzzy on our discord server (unfortanetly didn't get his real name for this idea
+                args = new ArrayList<>(Arrays.asList(items).subList(1, items.length));
                 // pass args to bytecode init function
                 bc.init(args);
                 // add bytecode to program

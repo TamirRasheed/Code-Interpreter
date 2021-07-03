@@ -17,6 +17,16 @@ public class HaltCode extends ByteCode{
 
     @Override
     public  void dump (VirtualMachine machine){
+        System.out.println("HALT");
+    }
 
+    @Override
+    public void setAddress(int address) {
+
+    }
+
+    @Override
+    public String getLabel() {
+        return null;
     }
 }

@@ -12,6 +12,7 @@ public class Program {
 
     public Program(ArrayList<ByteCode> byteCodes) {
         program = new ArrayList<>();
+        program = byteCodes;
     }
 
     protected ByteCode getCode(int programCounter) {

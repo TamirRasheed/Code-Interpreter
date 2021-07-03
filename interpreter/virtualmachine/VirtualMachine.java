@@ -11,6 +11,7 @@ public class VirtualMachine {
     private Program        program;
     private int            programCounter;
     private boolean        isRunning;
+    private boolean        dumpChecker;
 
     public VirtualMachine(Program program) {
         this.program = program;
@@ -31,8 +32,42 @@ public class VirtualMachine {
                 programCounter++;
             }
     }
+    public void newFrame(int num){
+        runTimeStack.newFrameAt(num);
+    }
 
+    public void setCountOfArgsForDump(int countOfArgs){
+        runTimeStack.setCountOfArgsForDump(countOfArgs);
+    }
+    public void setArgsCount(int count){
+        runTimeStack.setCountOfArgsForDump(count);
+    }
+    public void popRunStackFrame(){
+        runTimeStack.popFrame();
+    }
+    public int peekRunTimeStack(){
+        return runTimeStack.peek();
+    }
     public void pushRunTimeStack(int value) {
         runTimeStack.push(value);
+    }
+    public void loadRunTimeStack(Integer value) {
+        runTimeStack.load(value);
+    }
+    public int popRunStack(){
+        return runTimeStack.pop();
+    }
+    public void storeRunTimeStack(int value){
+        runTimeStack.store(value);
+    }
+    public void setProgramCounter(int value){
+        programCounter = value;
+    }
+    public void saveProgramCounter(){
+        pushRunTimeStack(programCounter);
+    }
+    public void returnProgramCounter(){setProgramCounter(returnAddress.pop());}
+    public void dump(boolean dump){
+        dumpChecker = dump;
     }
 }
