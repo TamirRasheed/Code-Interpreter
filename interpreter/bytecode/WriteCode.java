@@ -27,6 +27,6 @@ public class WriteCode extends ByteCode{
 
     @Override
     public String getLabel() {
-        return null;
+        return ("WRITE ");
     }
 }

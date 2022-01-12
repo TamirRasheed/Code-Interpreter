@@ -47,7 +47,7 @@ import java.util.ArrayList;
 
         @Override
         public String getLabel() {
-            return null;
+            return id;
         }
     }
 

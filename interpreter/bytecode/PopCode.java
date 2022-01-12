@@ -30,6 +30,6 @@ public class PopCode extends ByteCode{
 
     @Override
     public String getLabel() {
-        return null;
+        return ("POP");
     }
 }

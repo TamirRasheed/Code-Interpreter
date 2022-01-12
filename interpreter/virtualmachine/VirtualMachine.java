@@ -39,9 +39,7 @@ public class VirtualMachine {
     public void setCountOfArgsForDump(int countOfArgs){
         runTimeStack.setCountOfArgsForDump(countOfArgs);
     }
-    public void setArgsCount(int count){
-        runTimeStack.setCountOfArgsForDump(count);
-    }
+
     public void popRunStackFrame(){
         runTimeStack.popFrame();
     }

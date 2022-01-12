@@ -1,7 +1,5 @@
 package interpreter.virtualmachine;
-import interpreter.bytecode.BopCode;
-import interpreter.bytecode.ByteCode;
-import interpreter.bytecode.LabelCode;
+import interpreter.bytecode.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,9 +27,25 @@ public class Program {
         HashMap<String, Integer> addressestoResove = new HashMap<>();
 
         for (int i = 0; i < program.size(); i++) {
-            if (program.get(i) instanceof LabelCode) {
-                addressestoResove.put(((LabelCode) program.get(i)).getLabel(), i);
+            ByteCode byteCode = program.get(i);
+               if (byteCode instanceof LabelCode){
+                   addressestoResove.put(byteCode.getLabel(), i);
+               }
+        }
+        for (int i = 0; i < this.program.size(); i++){
+            ByteCode byteCode = program.get(i);
+            if (byteCode instanceof FalseBranchCode){
+                int value = addressestoResove.get(byteCode.getLabel());
+                byteCode.setAddress(value);
             }
+            else if(byteCode instanceof GotoCode){
+                int value = addressestoResove.get(byteCode.getLabel());
+                ((GotoCode) byteCode).setAddress(value);
+            }
+//            else if(byteCode instanceof CallCode){
+//                int value = addressestoResove.get(byteCode.getLabel());
+//                byteCode.setAddress(value);
+//            }
         }
 
     }

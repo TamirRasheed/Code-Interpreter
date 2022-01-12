@@ -72,11 +72,7 @@ public class ByteCodeLoader extends Object {
         } catch (IOException | ClassNotFoundException | NoSuchMethodException ex) {
             System.out.println(ex);
             System.exit(-1);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
             e.printStackTrace();
         }
         Program program = new Program(byteCodes);

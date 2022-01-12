@@ -84,13 +84,23 @@ class RunTimeStack {
   * from the top of the runtime stack .
   * @param offset slots down from the top of the runtime stack
   */
-         public void newFrameAt ( int offset ) { }
+         public void newFrameAt ( int offset ) {
+             framePointer.push(runTimeStack.size() - offset);
+         }
 
          /**
   * pop the current frame off the runtime stack . Also removes
   * the frame pointer value from the FramePointer Stack .
   */
-         public void popFrame () { }
+         public void popFrame () {
+             Integer pop = pop();
+             Integer framePop = framePointer.pop();
+             for (int i = runTimeStack.size() - 1; i >= framePop; i--) {
+                 pop();
+             }
+
+             push(pop);
+         }
 
          public void setCountOfArgsForDump(int countOfArgs){
              countOfArgsForDump = countOfArgs;

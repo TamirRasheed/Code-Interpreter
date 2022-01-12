@@ -11,7 +11,7 @@ public class LoadCode extends ByteCode{
     @Override
     public void init(ArrayList<String> args) {
         num = Integer.parseInt(args.get(0));
-        if(args.size()>0){
+        if(args.size()>1){
             variable = args.get(1);
         }
     }
@@ -37,7 +37,7 @@ public class LoadCode extends ByteCode{
 
     @Override
     public String getLabel() {
-        return null;
+        return variable;
     }
 }
 

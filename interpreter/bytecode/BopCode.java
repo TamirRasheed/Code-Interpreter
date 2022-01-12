@@ -61,6 +61,6 @@ public class BopCode extends ByteCode{
 
     @Override
     public String getLabel() {
-        return null;
+        return operand;
     }
 }

@@ -12,6 +12,7 @@ public class ReturnCode extends ByteCode{
     if(args.size() > 0){
         func = args.get(0);
         id = args.get(0).split("<<", 2)[0];
+
     }
     }
 
@@ -33,6 +34,6 @@ public class ReturnCode extends ByteCode{
 
     @Override
     public String getLabel() {
-        return null;
+        return id;
     }
 }

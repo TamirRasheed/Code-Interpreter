@@ -8,7 +8,7 @@ public class DumpCode extends ByteCode{
     private boolean dumpCheck;
     @Override
     public void init(ArrayList<String> args) {
-    dumpCheck = args.get(1).equals("ON");
+    dumpCheck = args.get(0).equals("ON");
     }
 
     @Override
@@ -28,6 +28,6 @@ public class DumpCode extends ByteCode{
 
     @Override
     public String getLabel() {
-        return null;
+        return String.valueOf(dumpCheck);
     }
 }

@@ -32,6 +32,6 @@ public class ReadCode extends ByteCode{
 
     @Override
     public String getLabel() {
-        return null;
+        return ("READ ");
     }
 }

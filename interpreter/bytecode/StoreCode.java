@@ -35,6 +35,6 @@ public class StoreCode extends ByteCode{
 
     @Override
     public String getLabel() {
-        return null;
+        return variable;
     }
 }
